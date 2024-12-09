@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { Album } from '../../interfaces/album.interface';
 
 @Component({
   selector: 'app-create-album',
@@ -9,12 +10,14 @@ import { MatDatepicker } from '@angular/material/datepicker';
 })
 export class CreateAlbumComponent {
 
-  @ViewChild('picker') picker!: MatDatepicker<Date>;
-
   public albumForm!: FormGroup;
   public isId: boolean = false;
   public genderItems: string[] = ['Classical', 'Salsa', 'Rock', 'Folk'];
   public recordLabelItems: string[] = ['Sony Music', 'Discos Fuentes', 'Elektra', 'Fania Records']; 
+
+  @ViewChild('picker') picker!: MatDatepicker<Date>;
+
+  @Output() emitNewAlbum: EventEmitter<Album> = new EventEmitter();
 
   constructor(
     private fb: FormBuilder,
@@ -37,5 +40,12 @@ export class CreateAlbumComponent {
       gender: ['', Validators.required],
       recordLabel: ['', Validators.required],
     });
+  }
+
+  public saveAlbum(): void {
+    if (this.albumForm.valid) {
+      this.emitNewAlbum.emit(this.albumForm.value);
+      this.albumForm.reset();
+    }
   }
 }
