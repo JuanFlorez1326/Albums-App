@@ -1,1 +1,63 @@
-<p>create-album works!</p>
+<mat-card class="create-task-form">
+
+    <form class="example-form" [formGroup]="albumForm">
+
+        <span class="create-task-title">{{ isId ? 'Edit': 'Create' }} Album:</span>
+
+        <mat-form-field class="form-field-group" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name">
+            <mat-error
+                *ngIf="albumForm.get('name')?.hasError('required') && albumForm.get('name')?.touched"
+            >Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-group" appearance="outline">
+            <mat-label>Deck</mat-label>
+            <input type="text" matInput formControlName="deck">
+            <mat-error
+                *ngIf="albumForm.get('deck')?.hasError('required') && albumForm.get('deck')?.touched"
+            >Deck is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-group picker" appearance="outline" (click)="openDatePicker()">
+            <mat-label>Release Date</mat-label>
+            <input matInput readonly [matDatepicker]="picker" formControlName="releaseDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+                *ngIf="albumForm.get('releaseDate')?.hasError('required') && albumForm.get('releaseDate')?.touched"
+            >Release Date is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option *ngFor="let item of genderItems" [value]="item">{{ item }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="albumForm.get('gender')?.hasError('required')">
+                Gender is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Record Label</mat-label>
+            <mat-select formControlName="recordLabel">
+              <mat-option *ngFor="let item of recordLabelItems" [value]="item">{{ item }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="albumForm.get('recordLabel')?.hasError('required')">
+                Record Label is required
+            </mat-error>
+        </mat-form-field>
+
+        <div class="container-btn-save">
+            <button *ngIf="isId" mat-stroked-button color="warn" (click)="$event.preventDefault()">
+                Cancel
+            </button>
+            <button mat-raised-button color="primary" [disabled]="this.albumForm.invalid" (click)="$event.preventDefault()">
+                Save
+            </button>
+        </div>
+    </form>
+
+</mat-card>

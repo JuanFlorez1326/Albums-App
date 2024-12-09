@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateAlbumComponent } from './components/create-album/create-album.component';
 import { ListAlbumComponent } from './components/list-album/list-album.component';
+import { CreateAlbumComponent } from './components/create-album/create-album.component';
+import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -26,7 +28,9 @@ const routes: Routes = [
     ListAlbumComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]
 })
