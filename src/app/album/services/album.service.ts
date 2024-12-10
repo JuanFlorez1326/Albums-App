@@ -13,7 +13,9 @@ export class AlbumService {
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) {
+    this.getAlbums();
+  }
 
   public getAlbums(): Observable<any> {
     const completedUrl = `${this.baseUrl}/albums`;

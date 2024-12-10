@@ -52,6 +52,7 @@ export function reducer(state = initialState, action: fromActions.ALBUM_ACTIONS)
 
 export const getAlbumState = createFeatureSelector<AlbumState>('albumState');
 export const selectAlbum = createSelector(getAlbumState, fromAdapters.selectAlbums);
+export const selectAlbumById = (id: number) => createSelector(getAlbumState, (state: AlbumState) => state.entities[id]);
 
 export const getError = (state: AlbumState) => state.error;
 export const getIsLoading = (state: AlbumState) => state.isLoading;

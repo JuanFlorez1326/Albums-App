@@ -1,1 +1,4 @@
-<app-details-album/>
+<app-details-album
+    [album]="currentAlbum$ | async"
+    [isLoading]="isLoading$ | async"
+/>
