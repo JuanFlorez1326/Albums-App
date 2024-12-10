@@ -1,5 +1,37 @@
-<h1>{{album?.name}}</h1>
+<div class="detailed-album" *ngIf="!isLoading" [id]="album?.id">
+    <div class="container-image">
+        <img src="{{ album?.cover }}" alt="">
+    </div>
 
-<div *ngIf="isLoading">
-    Hola
+    <div class="container-info">
+        <h1>{{ album?.name}} ({{ album?.genre }})</h1>
+        <span>{{ album?.releaseDate | date : 'dd/MM/yyyy' }} - {{album?.recordLabel}}</span>
+        <p>{{ album?.description }}</p>
+
+        <div class="btn">
+            <button mat-raised-button [color]="isCreateComment ? 'warn': 'primary'" (click)="isCreateComment = !isCreateComment">
+                {{ isCreateComment ? 'Cancel' : 'Create' }} Comment
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isLoading && isCreateComment">
+    create comment
+</div>
+
+<div *ngIf="!isLoading" class="comments">
+    <h1 class="comments-title">Comments</h1>
+
+    <mat-card *ngFor="let item of album?.comments">
+        <mat-card-header>
+          <mat-card-title>{{ item.description }}</mat-card-title>
+          <mat-card-subtitle>Rating: {{item.rating}}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+</div>
+
+
+<div class="loading-content" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
 </div>

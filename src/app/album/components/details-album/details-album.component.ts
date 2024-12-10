@@ -8,7 +8,9 @@ import { Album } from '../../interfaces/album.interface';
 })
 export class DetailsAlbumComponent {
 
-  @Input() album!: Album | null | undefined;
+  public isCreateComment: boolean = false;
+
+  @Input() album!: any;
   @Input() isLoading!: boolean | null;
 
   ngOnChanges(changes: SimpleChanges): void {
