@@ -71,7 +71,7 @@ export class AlbumEffects {
             mergeMap((action: fromActions.DeleteAlbum) => {
                 return this.albumService.deleteAlbum(action.payload).pipe(
                     map(() => {     
-                        return new fromActions.LoadAlbums();
+                        return new fromActions.DeleteAlbumSuccess(action.payload);
                     }),
                     catchError((error: any) => {
                         return this.onError(error);
