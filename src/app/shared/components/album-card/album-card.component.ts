@@ -1,19 +1,23 @@
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { AppState } from '../../ngrx/app.state';
 import { Component, Input } from '@angular/core';
 import { SharedModule } from '../../shared.module';
+import { MatDialog } from '@angular/material/dialog';
 import { Album } from 'src/app/album/interfaces/album.interface';
 import * as fromActions from '../../../album/store/actions/album.actions';
-import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
-import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-album-card',
   standalone: true,
-  imports: [ CommonModule, SharedModule, RouterModule ],
+  imports: [ 
+    CommonModule, 
+    SharedModule, 
+    RouterModule 
+  ],
   templateUrl: './album-card.component.html',
   styleUrls: ['./album-card.component.scss']
 })

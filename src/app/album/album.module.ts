@@ -11,6 +11,7 @@ import { DetailsAlbumComponent } from './components/details-album/details-album.
 import { ListAlbumPageComponent } from './containers/list-album-page/list-album-page.component';
 import { CreateAlbumPageComponent } from './containers/create-album-page/create-album-page.component';
 import { DetailsAlbumPageComponent } from './containers/details-album-page/details-album-page.component';
+
 const routes: Routes = [
   {
     path: 'create',

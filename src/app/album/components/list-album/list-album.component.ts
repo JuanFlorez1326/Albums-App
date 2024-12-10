@@ -3,8 +3,7 @@ import { Album } from '../../interfaces/album.interface';
 
 @Component({
   selector: 'app-list-album',
-  templateUrl: './list-album.component.html',
-  styleUrls: ['./list-album.component.scss']
+  templateUrl: './list-album.component.html'
 })
 export class ListAlbumComponent {
   @Input() albums!: Album[] | null;

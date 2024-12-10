@@ -10,8 +10,7 @@ import * as fromReducers from '../../../album/store/reducers/album.reducers';
 
 @Component({
   selector: 'app-details-album-page',
-  templateUrl: './details-album-page.component.html',
-  styleUrls: ['./details-album-page.component.scss']
+  templateUrl: './details-album-page.component.html'
 })
 export class DetailsAlbumPageComponent {
 

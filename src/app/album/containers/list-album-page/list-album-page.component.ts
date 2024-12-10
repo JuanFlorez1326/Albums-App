@@ -8,8 +8,7 @@ import * as fromReducers from '../../store/reducers/album.reducers';
 
 @Component({
   selector: 'app-list-album-page',
-  templateUrl: './list-album-page.component.html',
-  styleUrls: ['./list-album-page.component.scss']
+  templateUrl: './list-album-page.component.html'
 })
 export class ListAlbumPageComponent {
 
