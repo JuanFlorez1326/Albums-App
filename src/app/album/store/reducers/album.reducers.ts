@@ -26,20 +26,11 @@ export function reducer(state = initialState, action: fromActions.ALBUM_ACTIONS)
         case fromActions.AlbumActionTypes.UPDATE_ALBUM: {
             return { ...state, isLoading: true, success: false, error: null };
         }
-        case fromActions.AlbumActionTypes.UPDATE_ALBUM_SUCCESS: {
-            return fromAdapters.adapter.updateOne(action.payload, { ...state, isLoading: false, success: true });
-        }
         case fromActions.AlbumActionTypes.DELETE_ALBUM: {
             return { ...state, isLoading: true, success: false, error: null };
         }
-        case fromActions.AlbumActionTypes.DELETE_ALBUM_SUCCESS: {
-            return fromAdapters.adapter.removeOne(action.payload, { ...state, isLoading: false, success: true });
-        }
         case fromActions.AlbumActionTypes.ADD_COMMENT_TO_ALBUM: {
             return { ...state, isLoading: true, success: false, error: null };
-        }
-        case fromActions.AlbumActionTypes.ADD_COMMENT_TO_ALBUM_SUCCESS: {
-            return fromAdapters.adapter.updateOne(action.payload, { ...state, isLoading: false, success: true });
         }
         case fromActions.AlbumActionTypes.ERROR: {
             return { ...state, isLoading: false, success: false, error: action.payload };
