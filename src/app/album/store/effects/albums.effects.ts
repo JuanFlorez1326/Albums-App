@@ -37,6 +37,8 @@ export class AlbumEffects {
             mergeMap((action: fromActions.NewAlbum) => {
                 return this.albumService.createAlbum(action.payload).pipe(
                     map(() => {     
+                        this.router.navigate(['/albums/list']);
+                        debugger;
                         return new fromActions.NewAlbumSuccess(action.payload);
                     }),
                     catchError((error: any) => {

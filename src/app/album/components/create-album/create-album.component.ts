@@ -35,10 +35,11 @@ export class CreateAlbumComponent {
     this.albumForm = this.fb.group({
       id: [String(Math.floor(Math.random() * 1) + Date.now())],
       name: ['', Validators.required],
-      deck: ['', Validators.required],
+      cover: ['', Validators.required],
       releaseDate: ['', Validators.required],
-      gender: ['', Validators.required],
+      genre: ['', Validators.required],
       recordLabel: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 

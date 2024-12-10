@@ -1,1 +1,4 @@
-<p>list-album-page works!</p>
+<app-list-album
+    [albums]="albums$ | async"
+    [isLoading]="isLoading$ | async"
+/>

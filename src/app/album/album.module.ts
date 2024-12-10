@@ -6,17 +6,18 @@ import { SharedModule } from '../shared/shared.module';
 import { AlbumStoreModule } from './store/album-store.module';
 import { ListAlbumComponent } from './components/list-album/list-album.component';
 import { CreateAlbumComponent } from './components/create-album/create-album.component';
+import { AlbumCardComponent } from '../shared/components/album-card/album-card.component';
 import { ListAlbumPageComponent } from './containers/list-album-page/list-album-page.component';
 import { CreateAlbumPageComponent } from './containers/create-album-page/create-album-page.component';
 
 const routes: Routes = [
   {
     path: 'create',
-    component: CreateAlbumComponent
+    component: CreateAlbumPageComponent
   },
   {
     path: 'list',
-    component: ListAlbumComponent
+    component: ListAlbumPageComponent
   },
   {
     path: '**',
@@ -36,6 +37,7 @@ const routes: Routes = [
     SharedModule,
     CommonModule,
     AlbumStoreModule,
+    AlbumCardComponent,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ]

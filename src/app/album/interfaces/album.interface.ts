@@ -1,8 +1,9 @@
 export interface Album {
     id: string;
     name: string;
-    deck: string;
+    cover: string;
+    description?: string;
+    genre: string;
     releaseDate: string;
-    gender: string;
     recordLabel: string;
 }

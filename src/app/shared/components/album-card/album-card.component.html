@@ -1,0 +1,41 @@
+<div class="container-all-cards">
+    <mat-card class="card-album" *ngFor="let album of filteredAlbums" [id]="album.id">
+        <mat-card-header>
+            <mat-card-title>
+                <strong>{{ album.name | titlecase }}</strong>
+
+                <button mat-icon-button  matTooltip="See detailed album">
+                    <em class="fa-solid fa-arrow-up-right-from-square"></em>
+                </button>
+            </mat-card-title>
+
+            <mat-card-subtitle>Release Date: {{ album.releaseDate | date: 'dd/MM/yyyy' }}</mat-card-subtitle>
+            <mat-card-subtitle>Gender: {{ album.genre }} - Record Label: {{ album.recordLabel }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <div class="container-image">
+                <img class="image" [src]="album.cover" [alt]="album.name" (error)="setDefaultImg($event)">
+            </div>
+
+            <div class="description">
+                <span>{{ album.description }}</span>
+            </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <div class="actions-card">
+                <button mat-icon-button color="primary">
+                    <em class="fa-regular fa-pen-to-square"></em>
+                </button>
+                <button mat-icon-button color="warn">
+                    <em class="fa-regular fa-trash-can"></em>
+                </button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="loading-content" *ngIf="isLoadingCard">
+    <mat-spinner></mat-spinner>
+</div>

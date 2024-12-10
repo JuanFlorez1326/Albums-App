@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Album } from '../../interfaces/album.interface';
 
 @Component({
   selector: 'app-list-album',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-album.component.scss']
 })
 export class ListAlbumComponent {
-
+  @Input() albums!: Album[] | null;
+  @Input() isLoading!: boolean | null;
 }

@@ -13,11 +13,11 @@
         </mat-form-field>
 
         <mat-form-field class="form-field-group" appearance="outline">
-            <mat-label>Deck</mat-label>
-            <input type="text" matInput formControlName="deck">
+            <mat-label>Cover URL</mat-label>
+            <input type="text" matInput formControlName="cover">
             <mat-error
-                *ngIf="albumForm.get('deck')?.hasError('required') && albumForm.get('deck')?.touched"
-            >Deck is required</mat-error>
+                *ngIf="albumForm.get('cover')?.hasError('required') && albumForm.get('cover')?.touched"
+            >Cover is required</mat-error>
         </mat-form-field>
 
         <mat-form-field class="form-field-group picker" appearance="outline" (click)="openDatePicker()">
@@ -32,10 +32,10 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Gender</mat-label>
-            <mat-select formControlName="gender">
+            <mat-select formControlName="genre">
               <mat-option *ngFor="let item of genderItems" [value]="item">{{ item }}</mat-option>
             </mat-select>
-            <mat-error *ngIf="albumForm.get('gender')?.hasError('required')">
+            <mat-error *ngIf="albumForm.get('genre')?.hasError('required')">
                 Gender is required
             </mat-error>
         </mat-form-field>
@@ -50,11 +50,19 @@
             </mat-error>
         </mat-form-field>
 
+        <mat-form-field class="form-field-group" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea type="text" matInput formControlName="description" rows="3"></textarea>
+            <mat-error
+                *ngIf="albumForm.get('description')?.hasError('required') && albumForm.get('description')?.touched"
+            >Description is required</mat-error>
+        </mat-form-field>
+
         <div class="container-btn-save">
             <button *ngIf="isId" mat-stroked-button color="warn" (click)="$event.preventDefault()">
                 Cancel
             </button>
-            <button mat-raised-button color="primary" [disabled]="this.albumForm.invalid" (click)="$event.preventDefault()">
+            <button mat-raised-button color="primary" [disabled]="this.albumForm.invalid" (click)="saveAlbum(); $event.preventDefault()">
                 Save
             </button>
         </div>

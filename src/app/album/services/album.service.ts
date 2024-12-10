@@ -27,7 +27,8 @@ export class AlbumService {
 
   public createAlbum( album: Album ): Observable<any> {
     const completedUrl = `${this.baseUrl}/albums`;
-    return this.http.post<any>(completedUrl, album);
+    const { id, ...newAlbum } = album;
+    return this.http.post<any>(completedUrl, newAlbum);
   }
 
   public updateAlbum( album: Album ): Observable<any> {
