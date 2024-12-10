@@ -42,12 +42,12 @@ export class NewAlbumSuccess implements Action {
 
 export class UpdateAlbum implements Action {
     readonly type = AlbumActionTypes.UPDATE_ALBUM;
-    constructor(public payload: Album) {}
+    constructor(public payload: any) {}
 }
 
 export class UpdateAlbumSuccess implements Action {
     readonly type = AlbumActionTypes.UPDATE_ALBUM_SUCCESS;
-    constructor(public payload: Update<Album>) {}
+    constructor(public payload: Update<any>) {}
 }
 
 export class DeleteAlbum implements Action {
@@ -62,12 +62,12 @@ export class DeleteAlbumSuccess implements Action {
 
 export class AddCommentToAlbum implements Action {
     readonly type = AlbumActionTypes.ADD_COMMENT_TO_ALBUM;
-    constructor(public payload: Update<Album>) {}
+    constructor(public payload: any) {}
 }
 
 export class AddCommentToAlbumSuccess implements Action {
     readonly type = AlbumActionTypes.ADD_COMMENT_TO_ALBUM_SUCCESS;
-    constructor(public payload: Update<Album>) {}
+    constructor(public payload: Update<any>) {}
 }
 
 export class AlbumError implements Action {

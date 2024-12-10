@@ -38,7 +38,6 @@ export class AlbumEffects {
                 return this.albumService.createAlbum(action.payload).pipe(
                     map(() => {     
                         this.router.navigate(['/albums/list']);
-                        debugger;
                         return new fromActions.NewAlbumSuccess(action.payload);
                     }),
                     catchError((error: any) => {
@@ -81,21 +80,21 @@ export class AlbumEffects {
         );
     });
 
-    // addComment$: Observable<Action> = createEffect(() => {
-    //     return this.actions$.pipe(
-    //         ofType(fromActions.AlbumActionTypes.ADD_COMMENT_TO_ALBUM),
-    //         mergeMap((action: fromActions.AddCommentToAlbum) => {
-    //             return this.albumService.addCommentToAlbum(action.payload).pipe(
-    //                 map(() => {     
-    //                     return new fromActions.AddCommentToAlbumSuccess(action.payload);
-    //                 }),
-    //                 catchError((error: any) => {
-    //                     return this.onError(error);
-    //                 })
-    //             );
-    //         })
-    //     );
-    // });
+    addComment$: Observable<Action> = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(fromActions.AlbumActionTypes.ADD_COMMENT_TO_ALBUM),
+            mergeMap((action: fromActions.AddCommentToAlbum) => {
+                return this.albumService.addCommentToAlbum(action.payload).pipe(
+                    map(() => {     
+                        return new fromActions.LoadAlbums();
+                    }),
+                    catchError((error: any) => {
+                        return this.onError(error);
+                    })
+                );
+            })
+        );
+    });
 
     private onError(error: any): Observable<Action> {
         console.log('ERROR: ', error);

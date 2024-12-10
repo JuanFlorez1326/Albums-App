@@ -25,12 +25,6 @@ export class DetailsAlbumComponent {
     this.newComment();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['album']) {
-      console.log(this.album);
-    }
-  }
-
   public newComment(): void {
     this.commentsForm = this.fb.group({
       rating: ['', Validators.required],
@@ -40,8 +34,15 @@ export class DetailsAlbumComponent {
 
   public saveComment(): void {
     if (this.commentsForm.valid) {
-      this.emitNewComment.emit(this.commentsForm.value);
+      const completedComment = {
+        id: this.album.id,
+        description: this.commentsForm.value.comment,
+        rating: Number(this.commentsForm.value.rating),
+        collector: { id: 1 }
+      };
+      this.emitNewComment.emit(completedComment);
       this.commentsForm.reset();
+      this.isCreateComment = false;
     }
   }
 }

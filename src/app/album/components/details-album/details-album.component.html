@@ -41,7 +41,7 @@
         </div>
     
         <div class="container-btn">
-            <button mat-raised-button color="primary" [disabled]="commentsForm.invalid" (click)="$event.preventDefault()">
+            <button mat-raised-button color="primary" [disabled]="commentsForm.invalid" (click)="saveComment(); $event.preventDefault()">
                 Save Comment
             </button>
         </div>

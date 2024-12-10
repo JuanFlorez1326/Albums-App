@@ -27,8 +27,7 @@ export class AlbumService {
 
   public createAlbum( album: Album ): Observable<any> {
     const completedUrl = `${this.baseUrl}/albums`;
-    const { id, ...newAlbum } = album;
-    return this.http.post<any>(completedUrl, newAlbum);
+    return this.http.post<any>(completedUrl, album);
   }
 
   public updateAlbum( album: Album ): Observable<any> {
@@ -41,8 +40,9 @@ export class AlbumService {
     return this.http.delete<any>(completedUrl);
   }
 
-  public addCommentToAlbum( album: Album): Observable<any> {
-    const completedUrl = `${this.baseUrl}/albums/${album.id}/comments`;
-    return this.http.post<any>(completedUrl, album);
+  public addCommentToAlbum( comment: any): Observable<any> {
+    const completedUrl = `${this.baseUrl}/albums/${comment.id}/comments`;
+    const { id, ...newComment } = comment;
+    return this.http.post<any>(completedUrl, newComment);
   }
 }

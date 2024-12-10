@@ -36,4 +36,8 @@ export class DetailsAlbumPageComponent {
     this.isLoading$ = this.store.select(fromReducers.selectAlbumsIsLoading);
     this.currentAlbum$ = this.store.select(fromReducers.selectAlbumById(id));
   }
+
+  public newComent(comment: any) {
+    this.store.dispatch(new fromActions.AddCommentToAlbum(comment));
+  }
 }

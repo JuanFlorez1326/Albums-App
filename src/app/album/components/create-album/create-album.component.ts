@@ -33,7 +33,6 @@ export class CreateAlbumComponent {
 
   public newAlbumForm(): void {
     this.albumForm = this.fb.group({
-      // id: [String(Math.floor(Math.random() * 1) + Date.now())],
       name: ['', Validators.required],
       cover: ['', Validators.required],
       releaseDate: ['', Validators.required],

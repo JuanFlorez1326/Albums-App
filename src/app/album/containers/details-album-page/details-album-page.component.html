@@ -1,4 +1,5 @@
 <app-details-album
     [album]="currentAlbum$ | async"
     [isLoading]="isLoading$ | async"
+    (emitNewComment)="newComent($event)"
 />
