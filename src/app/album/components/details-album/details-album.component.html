@@ -16,8 +16,36 @@
     </div>
 </div>
 
-<div *ngIf="!isLoading && isCreateComment">
-    create comment
+<div *ngIf="!isLoading && isCreateComment" class="create-comment-container">
+    <h1 class="comments-title">New Comment</h1>
+
+    <form [formGroup]="commentsForm">
+        <div class="create-comment">
+            <mat-form-field appearance="outline" class="rating">
+                <mat-label>Rating</mat-label>
+                <mat-select formControlName="rating">
+                  <mat-option *ngFor="let item of rating" [value]="item">{{ item }}</mat-option>
+                </mat-select>
+                <mat-error
+                    *ngIf="commentsForm.get('rating')?.hasError('required') && commentsForm.get('rating')?.touched"
+                >Rating is required</mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="new-comment" appearance="outline">
+                <mat-label>Comment</mat-label>
+                <input type="text" matInput formControlName="comment">
+                <mat-error
+                    *ngIf="commentsForm.get('comment')?.hasError('required') && commentsForm.get('comment')?.touched"
+                >Cover is required</mat-error>
+            </mat-form-field>
+        </div>
+    
+        <div class="container-btn">
+            <button mat-raised-button color="primary" [disabled]="commentsForm.invalid" (click)="$event.preventDefault()">
+                Save Comment
+            </button>
+        </div>
+    </form>
 </div>
 
 <div *ngIf="!isLoading" class="comments">

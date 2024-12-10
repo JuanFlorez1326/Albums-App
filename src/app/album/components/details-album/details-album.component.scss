@@ -46,20 +46,42 @@
     }
 }
 
-.comments {
+.create-comment-container {
     width: 80%;
     margin: 0 auto;
 
-    .comments-title {
-        color: $blue-color;
-        font-weight: bold;
+    .create-comment {
+        display: flex;
+    
+        .rating {
+            width: 30%;
+        }
+
+        .new-comment {
+            width: 70%;
+            margin-left: 10px;
+        }
     }
+    
+    .container-btn {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.comments {
+    width: 80%;
+    margin: 0 auto;
 
     mat-card {
         margin-bottom: 10px;
     }
 }
 
+.comments-title {
+    color: $blue-color;
+    font-weight: bold;
+}
 
 .loading-content {
     width: 100%;
