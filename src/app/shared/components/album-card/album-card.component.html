@@ -25,10 +25,10 @@
 
         <mat-card-actions>
             <div class="actions-card">
-                <button mat-icon-button color="primary" (click)="editAlbum(album.id)">
+                <button mat-icon-button color="primary" (click)="editAlbum(album.id)" matTooltip="Edit">
                     <em class="fa-regular fa-pen-to-square"></em>
                 </button>
-                <button mat-icon-button color="warn" (click)="deleteAlbum(album.id)">
+                <button mat-icon-button color="warn" (click)="deleteAlbum(album.id)" matTooltip="Delete">
                     <em class="fa-regular fa-trash-can"></em>
                 </button>
             </div>

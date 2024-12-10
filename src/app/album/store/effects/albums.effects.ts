@@ -55,7 +55,7 @@ export class AlbumEffects {
                 return this.albumService.updateAlbum(action.payload).pipe(
                     map(() => {     
                         this.router.navigate(['/albums/list']);
-                        return new fromActions.UpdateAlbumSuccess({ id: action.payload.id, changes: action.payload });
+                        return new fromActions.LoadAlbums();
                     }),
                     catchError((error: any) => {
                         return this.onError(error);
