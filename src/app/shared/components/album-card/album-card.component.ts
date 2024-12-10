@@ -7,12 +7,13 @@ import { Album } from 'src/app/album/interfaces/album.interface';
 import * as fromActions from '../../../album/store/actions/album.actions';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-album-card',
   standalone: true,
-  imports: [ CommonModule, SharedModule ],
+  imports: [ CommonModule, SharedModule, RouterModule ],
   templateUrl: './album-card.component.html',
   styleUrls: ['./album-card.component.scss']
 })

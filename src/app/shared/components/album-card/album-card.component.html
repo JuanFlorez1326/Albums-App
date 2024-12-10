@@ -4,7 +4,7 @@
             <mat-card-title>
                 <strong>{{ album.name | titlecase }}</strong>
 
-                <button mat-icon-button  matTooltip="See detailed album">
+                <button mat-icon-button  matTooltip="See detailed album" [routerLink]="['/albums/detail', album.id]">
                     <em class="fa-solid fa-arrow-up-right-from-square"></em>
                 </button>
             </mat-card-title>
