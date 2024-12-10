@@ -1,6 +1,13 @@
-# AlbumCrud
+<p align="center">
+  <a href="https://angular.io/" target="blank"><img src="https://angular.io/assets/images/logos/angular/angular.svg" width="200" alt="Angular Logo" /></a>
+</p>
+
+# Album Crud - Makrosoft
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+
+## Techs and Tools
+`Angular - NgRx - TypeScript - Sass - Angular Material - Fontawesome`
 
 ## Development server
 

@@ -1,6 +1,6 @@
 @import '../../../../scss/main.index.scss';
 
-.create-task-form {
+.create-album-form {
     width: 500px;
     padding: 16px;
     margin: 20px auto;
@@ -15,7 +15,7 @@
         }
     }
 
-    .create-task-title {
+    .create-album-title {
         font-size: 20px;
         font-weight: 500;
         padding-bottom: 16px;
@@ -36,17 +36,6 @@
                 top: 4px;
                 left: 2px;
             }
-        }
-    }
-
-    .btn-actions-tasks {
-        margin: 16px 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-
-        button {
-            width: 40%;
         }
     }
 
@@ -81,7 +70,7 @@
 }
 
 @media only screen and (max-width: $max-mobile) {
-    .create-task-form {
+    .create-album-form {
         width: 95%;
     }
 }

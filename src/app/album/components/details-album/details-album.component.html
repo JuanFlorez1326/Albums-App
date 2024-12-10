@@ -57,6 +57,10 @@
           <mat-card-subtitle>Rating: {{item.rating}}</mat-card-subtitle>
         </mat-card-header>
     </mat-card>
+
+    <div *ngIf="!album?.comments.length">
+        <p>No comments yet</p>
+    </div>
 </div>
 
 

@@ -2,7 +2,7 @@ import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 import { AppState } from 'src/app/shared/ngrx/app.state';
 import { Album } from '../../interfaces/album.interface';
-import * as fromTasksActions from '../../store/actions/album.actions';
+import * as fromAlbumActions from '../../store/actions/album.actions';
 
 @Component({
   selector: 'app-create-album-page',
@@ -15,7 +15,7 @@ export class CreateAlbumPageComponent {
     private store: Store<AppState>
   ) {}
 
-  public saveNewTask(album: Album): void {
-    this.store.dispatch(new fromTasksActions.NewAlbum(album));
+  public saveNewAlbum(album: Album): void {
+    this.store.dispatch(new fromAlbumActions.NewAlbum(album));
   }
 }
