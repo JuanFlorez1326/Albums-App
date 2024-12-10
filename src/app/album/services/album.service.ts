@@ -32,7 +32,8 @@ export class AlbumService {
 
   public updateAlbum( album: Album ): Observable<any> {
     const completedUrl = `${this.baseUrl}/albums/${album.id}`;
-    return this.http.put<any>(completedUrl, album);
+    const { id, ...editAlbum } = album;
+    return this.http.put<any>(completedUrl, editAlbum);
   }
 
   public deleteAlbum( albumId: number ): Observable<any> {

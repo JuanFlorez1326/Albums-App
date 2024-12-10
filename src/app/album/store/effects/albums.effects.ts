@@ -2,9 +2,9 @@ import { Action } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import * as fromActions from '../actions/album.actions';
+import { AlbumService } from '../../services/album.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, catchError, map, mergeMap, of } from 'rxjs';
-import { AlbumService } from '../../services/album.service';
 
 @Injectable()
 export class AlbumEffects {
@@ -54,6 +54,7 @@ export class AlbumEffects {
             mergeMap((action: fromActions.UpdateAlbum) => {
                 return this.albumService.updateAlbum(action.payload).pipe(
                     map(() => {     
+                        this.router.navigate(['/albums/list']);
                         return new fromActions.UpdateAlbumSuccess({ id: action.payload.id, changes: action.payload });
                     }),
                     catchError((error: any) => {

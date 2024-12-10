@@ -1,10 +1,10 @@
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 import { AppState } from '../../ngrx/app.state';
 import { Component, Input } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { MatDialog } from '@angular/material/dialog';
+import { Router, RouterModule } from '@angular/router';
 import { Album } from 'src/app/album/interfaces/album.interface';
 import * as fromActions from '../../../album/store/actions/album.actions';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
@@ -29,6 +29,7 @@ export class AlbumCardComponent {
   @Input() isLoadingCard!: boolean | null;
 
   constructor(
+    private router: Router,
     private store: Store<AppState>,
     public dialog: MatDialog
   ) {}
@@ -40,6 +41,10 @@ export class AlbumCardComponent {
   public setDefaultImg(event: Event): void {
     const target = event.target as HTMLImageElement;
     target.src = this.noImg;
+  }
+
+  public editAlbum(id: string) {
+    this.router.navigate(['/albums/edit', id]);
   }
 
   public deleteAlbum(id: string) {

@@ -25,7 +25,7 @@
 
         <mat-card-actions>
             <div class="actions-card">
-                <button mat-icon-button color="primary">
+                <button mat-icon-button color="primary" (click)="editAlbum(album.id)">
                     <em class="fa-regular fa-pen-to-square"></em>
                 </button>
                 <button mat-icon-button color="warn" (click)="deleteAlbum(album.id)">

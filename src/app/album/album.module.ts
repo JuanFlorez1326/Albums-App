@@ -15,15 +15,23 @@ import { DetailsAlbumPageComponent } from './containers/details-album-page/detai
 const routes: Routes = [
   {
     path: 'create',
+    title: 'Create Album',
     component: CreateAlbumPageComponent
   },
   {
     path: 'list',
+    title: 'List Album',
     component: ListAlbumPageComponent
   },
   {
     path: 'detail/:id',
+    title: 'Details Album',
     component: DetailsAlbumPageComponent
+  },
+  {
+    path: 'edit/:id',
+    title: 'Edit Album',
+    component: CreateAlbumPageComponent
   },
   {
     path: '**',

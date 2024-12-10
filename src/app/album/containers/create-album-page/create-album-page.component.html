@@ -1,3 +1,7 @@
 <app-create-album
     (emitNewAlbum)="saveNewAlbum($event)"
+    (emitEditAlbum)="saveEditAlbum($event)"
+    [currentAlbum]="currentAlbum$ | async"
+    [isLoading]="isLoading$ | async"
+    [currentAlbumId]="albumId"
 />
