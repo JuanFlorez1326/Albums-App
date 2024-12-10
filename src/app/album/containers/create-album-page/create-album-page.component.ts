@@ -42,6 +42,5 @@ export class CreateAlbumPageComponent {
     this.store.dispatch(new fromAlbumActions.LoadAlbums());
     this.isLoading$ = this.store.select(fromAlbumReducers.selectAlbumsIsLoading);
     this.currentAlbum$ = this.store.select(fromAlbumReducers.selectAlbumById(albumId));
-    console.log(this.albumId);
   }
 }

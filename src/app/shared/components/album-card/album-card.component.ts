@@ -35,7 +35,7 @@ export class AlbumCardComponent {
   ) {}
 
   get filteredAlbums(): Album[] | null {
-    return this.albumsCard?.sort((a, b) => +new Date(b.releaseDate) - +new Date(a.releaseDate)) || null;
+    return this.albumsCard?.sort((a, b) => +b.id - +a.id) || null;
   }
 
   public setDefaultImg(event: Event): void {

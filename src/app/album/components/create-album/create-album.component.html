@@ -1,4 +1,4 @@
-<mat-card class="create-album-form">
+<mat-card class="create-album-form" *ngIf="!isLoading">
 
     <form class="example-form" [formGroup]="albumForm">
 
@@ -69,3 +69,7 @@
     </form>
 
 </mat-card>
+
+<div class="loading-content" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+</div>

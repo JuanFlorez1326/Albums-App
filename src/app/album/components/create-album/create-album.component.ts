@@ -62,7 +62,7 @@ export class CreateAlbumComponent {
   }
 
   public setAlbumFormValues(): void {
-    this.albumForm.patchValue({
+    this.albumForm?.patchValue({
       name: this.currentAlbum.name,
       cover: this.currentAlbum.cover,
       releaseDate: this.currentAlbum.releaseDate,
