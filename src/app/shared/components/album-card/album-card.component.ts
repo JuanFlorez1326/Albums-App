@@ -53,8 +53,10 @@ export class AlbumCardComponent {
       data: { 
         title: 'Delete Album',
         message: 'Are you sure you want to delete this album?',
-        delete: 'SI, ELIMINAR',
-        cancel: 'NO, CANCELAR' 
+        confirm: 'YES, DELETE',
+        cancel: 'NO, CANCEL',
+        colorCancel: 'basic',
+        colorConfirm: 'warn'
       }
     });
   

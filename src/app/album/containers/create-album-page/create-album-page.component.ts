@@ -6,6 +6,8 @@ import { Album } from '../../interfaces/album.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as fromAlbumActions from '../../store/actions/album.actions';
 import * as fromAlbumReducers from '../../store/reducers/album.reducers';
+import { AlertDialogComponent } from 'src/app/shared/components/alert-dialog/alert-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-album-page',
@@ -18,7 +20,7 @@ export class CreateAlbumPageComponent {
   public albumId!: number;
 
   constructor(
-    private router: Router,
+    public dialog: MatDialog,
     private route: ActivatedRoute,
     private store: Store<AppState>
   ) {}
@@ -31,7 +33,21 @@ export class CreateAlbumPageComponent {
   }
 
   public saveNewAlbum(album: Album): void {
-    this.store.dispatch(new fromAlbumActions.NewAlbum(album));
+    const dialogRef = this.dialog.open(AlertDialogComponent, {
+      width: '350px',
+      data: { 
+        title: 'Create Album',
+        message: 'Are you sure you want to create this album?',
+        confirm: 'YES, CREATE',
+        cancel: 'NO, CANCEL',
+        colorCancel: 'basic',
+        colorConfirm: 'primary'
+      }
+    });
+  
+    dialogRef.afterClosed().subscribe((result: any) => {      
+      if(result === 'yes') this.store.dispatch(new fromAlbumActions.NewAlbum(album));
+    });
   }
 
   public saveEditAlbum(album: any): void {

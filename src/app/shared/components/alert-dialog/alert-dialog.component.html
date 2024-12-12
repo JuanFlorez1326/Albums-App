@@ -3,7 +3,7 @@
 
 <div mat-dialog-actions>
   <div mat-dialog-actions class="dialog-actions">
-    <button mat-button color="primary" (click)="onCancel()">{{ data.cancel }}</button>
-    <button mat-raised-button color="warn" (click)="onConfirm()">{{ data.delete }}</button>
+    <button mat-stroked-button color="{{ data.colorCancel }}" (click)="onCancel()">{{ data.cancel }}</button>
+    <button mat-raised-button color="{{ data.colorConfirm }}" (click)="onConfirm()">{{ data.confirm }}</button>
   </div>
 </div>

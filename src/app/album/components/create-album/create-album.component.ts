@@ -82,12 +82,10 @@ export class CreateAlbumComponent {
         this.emitEditAlbum.emit(album);
       }
       else this.emitNewAlbum.emit(this.albumForm.value);
-      this.albumForm.reset();
     }
   }
 
   public cancelEdit(): void {
-    this.albumForm.reset();
     this.router.navigate(['/albums/list']);
   }
 }
